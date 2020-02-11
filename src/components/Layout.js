@@ -1,34 +1,18 @@
 import React, { Component } from "react";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import { fetchTrending } from "../store/actions/index";
+import TrendingMoviesList from "./TrendingMoviesList";
+import DiscoverMoviesList from "./DiscoverMoviesList";
 // import { Container } from './styles';
-// TODO: REMOVE THIS FETCH FROM LAYOUT TO NEW "BANNER COMPONENT"
+// TODO: Create Nav Component"
 class Layout extends Component {
-  componentDidMount() {
-    this.props.fetchTrending();
-  }
-
   render() {
-    if (!this.props.trending) {
-      return <div>loading</div>;
-    } else {
-      return (
-        <ul>
-          {this.props.trending.map(el => (
-            <li key={el.id}>{el.title}</li>
-          ))}
-        </ul>
-      );
-    }
+    return (
+      <div>
+        <nav>Nav</nav>
+        <TrendingMoviesList></TrendingMoviesList>
+        <DiscoverMoviesList></DiscoverMoviesList>
+      </div>
+    );
   }
 }
-const mapStateToProps = state => {
-  return { trending: state.trending.data };
-};
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ fetchTrending }, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Layout);
+export default Layout;

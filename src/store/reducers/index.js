@@ -1,9 +1,9 @@
-import { combineReducers } from 'redux';
-import TrendingReducer from './reducerTrending';
+import { combineReducers } from "redux";
+import TrendingReducer from "./reducerTrending";
+import DiscoverReducer from "./reducerDiscover";
+const rootReducer = combineReducers({
+  trending: TrendingReducer,
+  discover: DiscoverReducer
+});
 
-  const rootReducer = combineReducers({
-    trending:TrendingReducer,
-  });
-
-  
-  export default rootReducer;
+export default rootReducer;
